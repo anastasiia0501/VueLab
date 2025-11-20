@@ -1,103 +1,65 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 
 <template>
-  <div class="app">
-    <header class="navbar">
-      <div class="logo">MyApp</div>
+  <div class="min-h-screen flex flex-col bg-slate-100">
+    <!-- Навбар -->
+    <header class="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
+      <div class="max-w-4xl mx-auto flex items-center justify-between px-6 py-3">
+        <div class="font-bold text-xl tracking-[0.04em]">
+          MyApp
+        </div>
 
-      <nav class="nav-links">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-      </nav>
+        <nav class="flex gap-4">
+          <RouterLink
+            to="/"
+            class="text-sm px-3 py-1.5 rounded-full transition
+                   hover:bg-indigo-50 hover:-translate-y-px
+                   text-slate-800"
+          >
+            Home
+          </RouterLink>
+
+          <RouterLink
+            to="/about"
+            class="text-sm px-3 py-1.5 rounded-full transition
+                   hover:bg-indigo-50 hover:-translate-y-px
+                   text-slate-800"
+          >
+            About
+          </RouterLink>
+
+          <RouterLink
+            to="/contact"
+            class="text-sm px-3 py-1.5 rounded-full transition
+                   hover:bg-indigo-50 hover:-translate-y-px
+                   text-slate-800"
+          >
+            Contact
+          </RouterLink>
+        </nav>
+      </div>
     </header>
 
-    <main class="main-content">
+    <!-- Контент -->
+    <main class="flex-1 max-w-4xl mx-auto w-full px-6 py-6">
       <RouterView />
     </main>
 
-    <footer class="footer">
-      <p>
-        Звʼязатися зі мною:
-        <a href="mailto:anastasiia.storozhuk@oa.edu.ua">anastasiia.storozhuk@oa.edu.ua</a>
-      </p>
+    <!-- Футер -->
+    <footer class="bg-white border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-6 py-3 text-center text-sm text-slate-600">
+        <p>
+          Звʼязатися зі мною:
+          <a
+            href="mailto:anastasiia.storozhuk@oa.edu.ua"
+            class="text-indigo-600 hover:underline"
+          >
+            anastasiia.storozhuk@oa.edu.ua
+          </a>
+        </p>
+      </div>
     </footer>
   </div>
 </template>
-
-<style scoped>
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #f5f5f7;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e2e2e2;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.04em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 16px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
-  color: #333;
-}
-
-.nav-links a:hover {
-  background: #f0f0ff;
-  transform: translateY(-1px);
-}
-
-.nav-links .router-link-active {
-  background: #4f46e5;
-  color: #ffffff;
-}
-
-/* Контент розтягується, щоб футер був внизу */
-.main-content {
-  flex: 1;
-  padding: 24px;
-}
-
-/* Футер */
-.footer {
-  padding: 12px 24px;
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-  background: #ffffff;
-  border-top: 1px solid #e2e2e2;
-}
-
-.footer a {
-  color: #4f46e5;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-</style>
